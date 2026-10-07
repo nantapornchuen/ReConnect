@@ -474,7 +474,6 @@ const REGISTRATION_URL = "https://docs.google.com/forms/d/e/1FAIpQLScVjoRHpsMhIn
   const OPEN = Date.parse('2026-10-12T00:00:00+07:00'), CLOSE = Date.parse('2026-11-30T23:59:00+07:00'), now = Date.now();
   function off(msg){ btn.removeAttribute('href'); btn.setAttribute('aria-disabled','true'); btn.style.opacity = .55; btn.style.cursor = 'not-allowed'; st.textContent = msg; }
   if (!REGISTRATION_URL) off('The form link will be posted here soon.');
-  else if (now < OPEN) off('Registration opens on 12 October 2026.');
   else if (now > CLOSE) off('Registration closed on 30 November 2026. For late registration, please email nantaporn.ch@bsru.ac.th.');
   else { btn.href = REGISTRATION_URL; st.textContent = 'Opens Google Forms in a new tab. Registration closes on 30 November 2026.'; }
 
