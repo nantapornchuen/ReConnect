@@ -465,14 +465,18 @@ footer .org + div{color:var(--twin);font-weight:700;letter-spacing:.06em;text-tr
 
 <script>
 /* ===== Edit here ===== */
-const REGISTRATION_URL = "";   // paste the Google Form link, e.g. "https://forms.gle/xxxx"
+const REGISTRATION_URL = "https://docs.google.com/forms/d/e/1FAIpQLScVjoRHpsMhInK5-ShGVIOZ2gBANAuDquF1GyHM-uhk9bjeRg/viewform";   // paste the Google Form link, e.g. "https://forms.gle/xxxx"
 /* ===================== */
 
 (function(){
   // Registration button
   const btn = document.getElementById('reg-btn'), st = document.getElementById('reg-status');
-  if (REGISTRATION_URL) { btn.href = REGISTRATION_URL; st.textContent = 'Opens Google Forms in a new tab.'; }
-  else { btn.removeAttribute('href'); btn.setAttribute('aria-disabled','true'); btn.style.opacity = .55; btn.style.cursor = 'not-allowed'; st.textContent = 'The form link will be posted here soon.'; }
+  const OPEN = Date.parse('2026-10-12T00:00:00+07:00'), CLOSE = Date.parse('2026-11-30T23:59:00+07:00'), now = Date.now();
+  function off(msg){ btn.removeAttribute('href'); btn.setAttribute('aria-disabled','true'); btn.style.opacity = .55; btn.style.cursor = 'not-allowed'; st.textContent = msg; }
+  if (!REGISTRATION_URL) off('The form link will be posted here soon.');
+  else if (now < OPEN) off('Registration opens on 12 October 2026.');
+  else if (now > CLOSE) off('Registration closed on 30 November 2026. For late registration, please email nantaporn.ch@bsru.ac.th.');
+  else { btn.href = REGISTRATION_URL; st.textContent = 'Opens Google Forms in a new tab. Registration closes on 30 November 2026.'; }
 
   // Google Calendar link
   const p = new URLSearchParams({
