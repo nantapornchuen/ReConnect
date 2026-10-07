@@ -32,7 +32,7 @@
 *{box-sizing:border-box}
 html{scroll-behavior:smooth}
 @media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{animation:none!important;transition:none!important}}
-body{background:var(--night);--band:#10223f;color:var(--ink);font-family:var(--f-body);font-size:17px;line-height:1.6;-webkit-font-smoothing:antialiased}
+body{background:var(--night);color:var(--ink);font-family:var(--f-body);font-size:17px;line-height:1.6;-webkit-font-smoothing:antialiased}
 a{color:var(--twin)}
 a:focus-visible,button:focus-visible{outline:2px solid var(--sun);outline-offset:3px;border-radius:4px}
 .wrap{max-width:1100px;margin:0 auto;padding-inline:20px}
@@ -97,7 +97,19 @@ p{margin:0}
 @keyframes rise{from{transform:translateY(14px)}to{transform:none}}
 
 /* sections */
-section.block:nth-of-type(odd){background:var(--band)}
+section.block{background:var(--night);color:var(--ink)}
+/* Light "paper" sections alternate with the dark poster navy */
+section.block.light{
+  --night:#eef3f9; --deep:#ffffff; --line:#cfdbe8; --ink:#0b1a33; --mute:#46596f;
+  --twin:#0b7a80; --sun:#8a5d00; --lime:#4a7310; --ember:#e0602f; color-scheme:light;
+  border-bottom-color:transparent;
+}
+section.block.light h2{color:var(--ink)}
+section.block.light .eyebrow{color:var(--twin)}
+section.block.light .card,section.block.light .spk{box-shadow:0 1px 2px rgba(11,26,51,.06),0 8px 24px -12px rgba(11,26,51,.18)}
+section.block.light .who{background:var(--deep)}
+section.block.light .facts dd{color:var(--ink)}
+section.block.light .tbc{background:#fff6dc}
 section.block{padding-block:84px;border-bottom:1px solid var(--line);scroll-margin-top:70px}
 .head{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.3fr);gap:24px 56px;align-items:end;margin-bottom:44px}
 .head p{color:var(--mute);max-width:60ch}
@@ -258,7 +270,7 @@ footer .org + div{color:var(--twin);font-weight:700;letter-spacing:.06em;text-tr
     </div>
   </section>
 
-  <section class="block" id="about" aria-labelledby="h-about">
+  <section class="block light" id="about" aria-labelledby="h-about">
     <div class="wrap">
       <div class="head">
         <div><div class="eyebrow">About the symposium</div><h2 id="h-about">One research family, reunited every year.</h2></div>
@@ -309,7 +321,7 @@ footer .org + div{color:var(--twin);font-weight:700;letter-spacing:.06em;text-tr
     </div>
   </section>
 
-  <section class="block" id="who" aria-labelledby="h-who">
+  <section class="block light" id="who" aria-labelledby="h-who">
     <div class="wrap">
       <div class="head">
         <div><div class="eyebrow">Who should attend</div><h2 id="h-who">Built for people who model, teach and build.</h2></div>
@@ -359,7 +371,7 @@ footer .org + div{color:var(--twin);font-weight:700;letter-spacing:.06em;text-tr
     </div>
   </section>
 
-  <section class="block" id="speakers" aria-labelledby="h-spk">
+  <section class="block light" id="speakers" aria-labelledby="h-spk">
     <div class="wrap">
       <div class="head">
         <div><div class="eyebrow">Speakers</div><h2 id="h-spk">Distinguished speakers from research, education and practice.</h2></div>
@@ -411,7 +423,7 @@ footer .org + div{color:var(--twin);font-weight:700;letter-spacing:.06em;text-tr
     </div>
   </section>
 
-  <section class="block" id="venue" aria-labelledby="h-venue">
+  <section class="block light" id="venue" aria-labelledby="h-venue">
     <div class="wrap">
       <div class="head">
         <div><div class="eyebrow">Venue &amp; contact</div><h2 id="h-venue">On the Thonburi side of the river.</h2></div>
